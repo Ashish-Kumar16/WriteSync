@@ -1,68 +1,229 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
+@layer base {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+
+    --primary: 262.1 83.3% 57.8%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 262.1 83.3% 57.8%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 224 71.4% 4.1%;
+    --sidebar-foreground: 210 20% 98%;
+    --sidebar-primary: 262.1 83.3% 57.8%;
+    --sidebar-primary-foreground: 210 20% 98%;
+    --sidebar-accent: 217.2 32.6% 17.5%;
+    --sidebar-accent-foreground: 210 20% 98%;
+    --sidebar-border: 217.2 32.6% 17.5%;
+    --sidebar-ring: 262.1 83.3% 57.8%;
+
+    --editor-background: 224 71.4% 4.1%;
+    --editor-foreground: 210 20% 98%;
+    --editor-block: 215 28% 10%;
+    --editor-block-hover: 215 28% 12%;
+    --editor-block-selected: 263.4 70% 13%;
   }
-  a:hover {
-    color: #747bff;
+
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 263.4 70% 50.4%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 263.4 70% 50.4%;
+
+    --sidebar-background: 224 71.4% 4.1%;
+    --sidebar-foreground: 210 20% 98%;
+    --sidebar-primary: 263.4 70% 50.4%;
+    --sidebar-primary-foreground: 210 20% 98%;
+    --sidebar-accent: 215 27.9% 16.9%;
+    --sidebar-accent-foreground: 210 20% 98%;
+    --sidebar-border: 215 27.9% 16.9%;
+    --sidebar-ring: 263.4 70% 50.4%;
+
+    --editor-background: 215 28% 7%;
+    --editor-foreground: 210 20% 98%;
+    --editor-block: 215 28% 10%;
+    --editor-block-hover: 215 28% 12%;
+    --editor-block-selected: 263.4 70% 13%;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    background-color: hsl(var(--editor-background));
+    color: hsl(var(--editor-foreground));
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .dark-theme {
+    @apply bg-[hsl(var(--editor-background))] text-[hsl(var(--editor-foreground))];
+  }
+}
+
+.editor-content {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  outline: none;
+}
+
+.editor-block {
+  @apply p-2 my-1 rounded-md transition-colors relative flex items-start gap-2;
+}
+
+.editor-block:hover:not(.editor-block-selected) {
+  background-color: hsl(var(--editor-block-hover));
+}
+
+.editor-block-selected {
+  background-color: hsl(var(--editor-block-selected));
+}
+
+.editor-block-handle {
+  @apply opacity-0 transition-opacity cursor-grab w-6 h-6 flex items-center justify-center hover:bg-accent rounded;
+}
+
+.editor-block:hover .editor-block-handle {
+  @apply opacity-100;
+}
+
+.editor-block-content {
+  @apply flex-1 outline-none;
+}
+
+.editor-block-content[contenteditable="true"] {
+  @apply min-h-[24px] break-words;
+}
+
+.editor-h1 {
+  @apply text-4xl font-bold;
+}
+
+.editor-h2 {
+  @apply text-3xl font-bold;
+}
+
+.editor-h3 {
+  @apply text-2xl font-bold;
+}
+
+.editor-p {
+  @apply text-base;
+}
+
+.editor-ul {
+  @apply list-disc pl-5;
+}
+
+.editor-ol {
+  @apply list-decimal pl-5;
+}
+
+.editor-image {
+  @apply w-full;
+}
+
+.editor-image img {
+  @apply max-w-full my-2 rounded-lg;
+}
+
+.editor-quote {
+  @apply pl-4 border-l-4 border-primary italic text-muted-foreground;
+}
+
+.editor-code {
+  @apply font-mono bg-muted p-3 rounded-md overflow-x-auto;
+}
+
+.editor-divider {
+  @apply border-t border-border my-4;
+}
+
+[contentEditable=true]:empty:before {
+  content: attr(data-placeholder);
+  @apply text-muted-foreground italic;
+  pointer-events: none;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .editor-content {
+    max-width: 100%;
+    padding: 0 8px;
+  }
+  
+  .editor-h1 {
+    @apply text-3xl;
+  }
+  
+  .editor-h2 {
+    @apply text-2xl;
+  }
+  
+  .editor-h3 {
+    @apply text-xl;
+  }
+  
+  .editor-block .absolute {
+    position: static;
+    transform: none;
+    margin-top: 8px;
+    display: flex;
+    justify-content: flex-end;
   }
 }
