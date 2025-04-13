@@ -72,4 +72,3 @@ To set up the backend:
 2. Configure it to run on `http://localhost:5000`.
 3. Refer to the backend's documentation for specific setup instructions.
 
-If you don’t have the backend code, you’ll need to develop or integrate a service that matches these endpoints.
