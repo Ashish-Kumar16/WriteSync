@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { toast } from "@/components/ui/use-toast";
 import { signOut } from "@/redux/authSlice";
 
-const API_URL = "http://localhost:5000/api/notes";
+const API_URL = "https://writesync-dmuz.onrender.com/api/notes";
 
 const useNotes = () => {
   const [notes, setNotes] = useState([]);

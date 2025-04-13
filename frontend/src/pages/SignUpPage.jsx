@@ -19,11 +19,14 @@ const SignUpPage = () => {
       return;
     }
     try {
-      const response = await fetch("http://localhost:5000/api/auth/signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
+      const response = await fetch(
+        "https://writesync-dmuz.onrender.com/api/auth/signup",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        },
+      );
       const data = await response.json();
       if (response.ok) {
         dispatch(signIn({ user: data.user, token: data.token }));
