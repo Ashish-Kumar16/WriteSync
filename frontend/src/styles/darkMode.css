@@ -1,0 +1,28 @@
+/* Dark Mode Styles */
+.dark body {
+  @apply bg-gray-900 text-white;   /* ← added text-white */
+  color-scheme: dark;
+}
+
+/* Make sure prose headings and paragraphs inherit white */
+.dark .prose {
+  @apply text-white;
+}
+
+.dark .prose h1,
+.dark .prose h2,
+.dark .prose h3,
+.dark .prose h4 {
+  @apply text-white;
+}
+
+.dark .prose p,
+.dark .prose ul,
+.dark .prose ol {
+  @apply text-white;
+}
+
+/* Your editor container already uses text-gray-100, but you can bump it to pure white */
+.dark .editor-container {
+  @apply bg-gray-800 text-white;
+}

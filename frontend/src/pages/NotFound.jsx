@@ -1,51 +1,27 @@
-import React, { useEffect } from "react";
+
 import { useLocation } from "react-router-dom";
-import { Box, Typography, Link } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
+import { useEffect } from "react";
 
 const NotFound = () => {
   const location = useLocation();
-  const theme = useTheme();
 
   useEffect(() => {
     console.error(
       "404 Error: User attempted to access non-existent route:",
-      location.pathname,
+      location.pathname
     );
   }, [location.pathname]);
 
   return (
-    <Box
-      sx={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        bgcolor: "editor.background",
-      }}
-    >
-      <Box sx={{ textAlign: "center" }}>
-        <Typography
-          variant="h4"
-          sx={{ fontWeight: "bold", mb: 2, color: "editor.foreground" }}
-        >
-          404
-        </Typography>
-        <Typography variant="h6" sx={{ mb: 2, color: "text.secondary" }}>
-          Oops! Page not found
-        </Typography>
-        <Link
-          href="/"
-          sx={{
-            color: "primary.main",
-            "&:hover": { color: "primary.dark" },
-            textDecoration: "underline",
-          }}
-        >
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold mb-4">404</h1>
+        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
+        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
           Return to Home
-        </Link>
-      </Box>
-    </Box>
+        </a>
+      </div>
+    </div>
   );
 };
 
