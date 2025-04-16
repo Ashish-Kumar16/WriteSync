@@ -11,7 +11,8 @@ const { errorHandler } = require("./middlewares/errorMiddleware");
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({ origin: "*" }));
+
 app.use(helmet());
 app.use(morgan("dev"));
 app.use(express.json());
