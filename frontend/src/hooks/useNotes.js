@@ -76,18 +76,17 @@ const useNotes = () => {
           });
           return;
         }
-        throw new Error("Failed to create note");
+        throw new Error("Failed to create note"); // Line 79
       }
       const newNote = await response.json();
       setNotes((prevNotes) => [...prevNotes, newNote]);
       setActiveNoteId(newNote.id);
       toast({ title: "Note created successfully" });
     } catch (error) {
-      console.error("Create note error:", error);
+      console.error("Create note error:", error); // Line 86
       toast({ title: "Error creating note", variant: "destructive" });
     }
   };
-
   // Update an existing note
   const updateNote = async (id, updates) => {
     if (!token) {
